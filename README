@@ -3,6 +3,7 @@ LKDEV
 
 Build rootfs thing for GNU/Linux kernel development stuff:
 
-	O=<output dir> BR2_EXTERNAL=<this dir> power9le_defconfig
-	cd <output dir>
+	cd buildroot # Oh, needs buildroot too.
+	make O=/path/to/build BR2_EXTERNAL=/path/to/lkdev power9le_defconfig
+	cd /path/to/build
 	make
