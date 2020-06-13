@@ -1,0 +1,10 @@
+config BR2_PACKAGE_WILL_IT_SCALE
+	bool "will-it-scale"
+	select BR2_PACKAGE_HWLOC
+	help
+	  Will It Scale takes a testcase and runs it from 1 through n parallel
+	  copies to see if the testcase will scale. It builds both a process
+	  and threads based test in order to see any differences between the
+	  two.
+
+	  https://github.com/antonblanchard/will-it-scale

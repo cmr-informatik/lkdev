@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_LKDEV_PATH/package/will-it-scale/Config.in"

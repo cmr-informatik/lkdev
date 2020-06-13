@@ -1,0 +1,31 @@
+From 1fe75b34fb23699dc9a69817ab01ad6ce730c4c7 Mon Sep 17 00:00:00 2001
+From: "Christopher M. Riedl" <cmr@informatik.wtf>
+Date: Fri, 12 Jun 2020 22:24:54 -0500
+Subject: [PATCH] Use 'override' on LDFLAGS to always append -lhwloc
+
+Variables set from the commandline when calling GNU Make will always
+override any Makefile variables _unless_ the Makefile variables are
+preceeded by the 'override' keyword. This is usually OK, except when
+trying to build with something like buildroot which explicitly sets
+every Make variable in the universe. In that case, '-lhwloc' isn't
+included in buildroot's LDFLAGS and the build fails when linking.
+
+Signed-off-by: Christopher M. Riedl <cmr@informatik.wtf>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 8dd0717..a942651 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,5 @@
+ CFLAGS+=-Wall -O2 -g
+-LDFLAGS+=-lhwloc
++override LDFLAGS+= -lhwloc
+ 
+ processes := $(patsubst tests/%.c,%_processes,$(wildcard tests/*.c))
+ threads := $(patsubst tests/%.c,%_threads,$(wildcard tests/*.c))
+-- 
+2.27.0
+
