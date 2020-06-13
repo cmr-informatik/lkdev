@@ -1,0 +1,8 @@
+LKDEV
+=====
+
+Build rootfs thing for GNU/Linux kernel development stuff:
+
+	O=<output dir> BR2_EXTERNAL=<this dir> power9le_defconfig
+	cd <output dir>
+	make
