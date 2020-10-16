@@ -1,0 +1,8 @@
+config BR2_PACKAGE_SAFESIDE
+	bool "safeside"
+	select BR2_INSTALL_LIBSTDCPP
+	help
+	  The Google Safeside project provides simple spectre and meltdown
+	  exploit demos.
+
+	  https://github.com/google/safeside
